@@ -5,16 +5,19 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  height: 100%;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: -60px;
+  /* margin-top: -60px; */
 
   @media (max-width: 425px) {
-    margin-top: 320px;
+    /* margin-top: 320px; */
+  }
+
+  @media (max-width: 375px) {
+    /* margin-top: 20px; */
   }
 `;
 
@@ -62,6 +65,7 @@ export const Card = styled.div`
 
   @media (max-width: 425px) {
     display: flex;
+    flex-wrap: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;

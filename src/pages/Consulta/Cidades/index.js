@@ -14,11 +14,24 @@ export default function Cidades() {
     async function loadCidades() {
       const response = await api.get('/empresas?group=cidade');
 
+      const places = response.data.cidade;
+
+      const filteredCidades = places.filter(function filterData(place) {
+        return (
+          place === 'Feira de Santana' ||
+          place === 'Brumado' ||
+          place === 'Guanambi' ||
+          place === 'Jequié' ||
+          place === 'Salvador' ||
+          place === 'Santo Antônio de Jesus'
+        );
+      });
+
       const numResponse = await api.get('/empresas');
 
       setNum(numResponse.data._meta.total_items);
 
-      setCitys(response.data.cidade);
+      setCitys(filteredCidades);
     }
 
     loadCidades();

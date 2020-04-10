@@ -308,13 +308,14 @@ export const PersonalContent = styled.div`
 
   main {
     display: flex;
+    flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
 
     button {
       border: none;
       padding: 10px;
-      width: 250px;
+      width: 545px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -340,6 +341,7 @@ export const PersonalContent = styled.div`
 
     @media (max-width: 425px) {
       display: flex;
+      flex-wrap: none;
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-start;

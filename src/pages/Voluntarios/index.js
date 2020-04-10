@@ -71,7 +71,7 @@ export default function Voluntarios() {
             <aside>
               <strong>Redes Sociais</strong>
               <div>
-                <a href="https://linkedin.com/in/enrickdaltro">
+                <a href="https://github.com/enrickdaltro">
                   <FaGithub size={18} />
                 </a>
                 <a href="https://www.linkedin.com/in/enrickdaltro/">

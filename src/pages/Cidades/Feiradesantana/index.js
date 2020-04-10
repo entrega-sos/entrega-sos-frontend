@@ -36,6 +36,8 @@ export default function Feiradesantana() {
   const [tipos, setTipos] = useState([]);
   const [stores, setStores] = useState([]);
   const [company, setCompany] = useState([]);
+  const [formattedWhatsapp, setFormattedWhatsapp] = useState('');
+  const [formattedPhone, setFormattedPhone] = useState('');
   const [pagamento, setPagamento] = useState(null);
 
   const [visible, setVisible] = useState(true);
@@ -93,6 +95,14 @@ export default function Feiradesantana() {
 
     setShow(!show);
     setCard(!card);
+
+    const phone = store.telefone;
+    const phoneWhatsapp = store.whatsapp;
+    const formatPhone = phone.replace(/\D+/g, '');
+    const formatWhatsapp = phoneWhatsapp.replace(/\D+/g, '');
+
+    setFormattedPhone(formatPhone);
+    setFormattedWhatsapp(formatWhatsapp);
   }
 
   function handleBack() {
@@ -205,7 +215,7 @@ export default function Feiradesantana() {
 
                   <span>WhatsApp: </span>
                   <a
-                    href={`https://wa.me/55${company.whatsapp}`}
+                    href={`https://wa.me/55${formattedWhatsapp}`}
                     rel="noopener noreferrer"
                     target="_blank"
                   >
@@ -216,7 +226,7 @@ export default function Feiradesantana() {
                   <MdLocalPhone size={20} />
                   <span>Telefone: </span>{' '}
                   <a
-                    href={`https://wa.me/55${company.telefone}`}
+                    href={`https://wa.me/55${formattedPhone}`}
                     rel="noopener noreferrer"
                     target="_blank"
                   >

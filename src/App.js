@@ -12,7 +12,7 @@ import './config/ReactotronConfig';
 
 import Routes from './routes';
 
-import { store } from './store';
+import store from './store';
 
 import GlobalStyles from './styles/global';
 import history from './services/history';

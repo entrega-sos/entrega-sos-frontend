@@ -102,8 +102,6 @@ export default function Cadastro() {
     });
     const users = response.data.items;
 
-    console.log(users);
-
     const filteredAdmin = users.filter(function filterData(user) {
       return user.usuario === login && user.admin === true;
     });

@@ -108,6 +108,13 @@ export const ButtonAdd = styled.button`
     width: 330px;
     padding: 10px;
   }
+
+  @media (max-width: 320px) {
+    margin-left: 0;
+    margin-top: 0;
+    width: 220px;
+    padding: 10px;
+  }
 `;
 
 export const Options = styled.div`

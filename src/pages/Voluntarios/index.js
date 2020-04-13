@@ -22,6 +22,7 @@ import MU from '../../assets/foto-murilo.jpg';
 import NT from '../../assets/foto-nataly.jpg';
 import OD from '../../assets/foto-odilon.jpg';
 import MT from '../../assets/foto-matheus.jpg';
+import PG from '../../assets/foto-philippe.jpg';
 
 import { Container, Content, Text, Card } from './styles';
 
@@ -95,6 +96,28 @@ export default function Voluntarios() {
               <div>
                 <a href="https://instagram.com/nataly_costa_design">
                   <FaInstagram size={18} />
+                </a>
+              </div>
+            </aside>
+          </section>
+
+          <section>
+            <div>
+              <img src={PG} alt="" />
+              <div className="name">
+                <strong>Philippe Gomes</strong>
+                <p>Cloud Infrastructure Architect</p>
+              </div>
+            </div>
+
+            <aside>
+              <strong>Redes Sociais</strong>
+              <div>
+                <a href="https://instagram.com/philippegomes">
+                  <FaInstagram size={18} />
+                </a>
+                <a href="https://www.linkedin.com/in/philippe-gomes-51ab06169">
+                  <FaLinkedin size={18} />
                 </a>
               </div>
             </aside>

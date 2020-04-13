@@ -34,12 +34,33 @@ export const Content = styled.div`
     margin: 10px;
     width: 415px;
   }
+  @media (max-width: 375px) {
+    margin: 10px;
+    width: 365px;
+  }
+
+  @media (max-width: 320px) {
+    margin: 10px;
+    width: 310px;
+  }
 `;
 
 export const Text = styled.div`
   margin-bottom: 20px;
 
   text-align: center;
+
+  @media (max-width: 425px) {
+    span {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    p {
+      margin-top: 10px;
+      font-size: 8px;
+    }
+  }
 
   span {
     font-size: 20px;
@@ -99,6 +120,30 @@ export const Card = styled.div`
       }
     }
 
+    @media (max-width: 375px) {
+      width: 330px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+
+      &:first-child {
+        margin-top: 0px;
+      }
+    }
+
+    @media (max-width: 320px) {
+      width: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+
+      &:first-child {
+        margin-top: 0px;
+      }
+    }
+
     div {
       display: flex;
       align-items: center;
@@ -137,6 +182,13 @@ export const Card = styled.div`
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
+
+        @media (max-width: 375px) {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
 
         a {
           color: #000;

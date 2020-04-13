@@ -51,7 +51,10 @@ export default function Cidades() {
             {citys !== null ? (
               <>
                 {citys.map(city => (
-                  <Button key={city.toString()} to={`/cidades/${city}`}>
+                  <Button
+                    key={city.toString()}
+                    to={`/cidades/${city.replace(/ /g, '')}`}
+                  >
                     <img src={Arrow} alt="Seta" />
                     <span>{city}</span>
                   </Button>

@@ -180,8 +180,16 @@ export const Places = styled.button`
     background: ${darken(0.03, '#fafafa')};
   }
 
+  div.title {
+    font-weight: bold;
+  }
+
+  div.info,
+  div.horario {
+    font-size: 12px;
+  }
+
   span {
-    margin-left: 8px;
     color: #000;
   }
 `;

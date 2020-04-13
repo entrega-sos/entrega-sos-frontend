@@ -24,11 +24,11 @@ export default function Routes() {
       <Route path="/consulta/cadastro" component={ConsultaCadastro} />
 
       <Route path="/cidades/Brumado" component={Brumado} />
-      <Route path="/cidades/Feira de Santana" component={Feiradesantana} />
+      <Route path="/cidades/FeiradeSantana" component={Feiradesantana} />
       <Route path="/cidades/Guanambi" component={Guanambi} />
       <Route path="/cidades/Jequié" component={Jequie} />
       <Route path="/cidades/Salvador" component={Salvador} />
-      <Route path="/cidades/Santo Antônio de Jesus" component={SantoAntonio} />
+      <Route path="/cidades/SantoAntôniodeJesus" component={SantoAntonio} />
     </Switch>
   );
 }

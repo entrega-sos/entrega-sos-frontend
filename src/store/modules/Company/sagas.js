@@ -29,7 +29,6 @@ export function* createCompany({ payload }) {
     facebook,
     site,
     obs,
-    admin,
   } = payload.data;
 
   try {
@@ -53,7 +52,6 @@ export function* createCompany({ payload }) {
       facebook,
       site,
       obs,
-      admin: Boolean(admin),
     });
 
     yield put(createCompanySuccess());

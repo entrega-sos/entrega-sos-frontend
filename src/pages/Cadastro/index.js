@@ -36,7 +36,6 @@ export default function Cadastro() {
 
   // login state
   const [login, setLogin] = useState('');
-  const [page] = useState(1);
 
   const [visible, setVisible] = useState(true);
   const [show, setShow] = useState(false);
@@ -79,37 +78,46 @@ export default function Cadastro() {
     select.innerHTML = option;
   }
 
-  const onSubmit = data => {
-    if (login && profiles) {
-      const filteredProfiles = profiles.filter(function filterData(profile) {
-        return profile.usuario === login && profile.admin === true;
-      });
+  const onSubmit = async data => {
+    if (profiles) {
+      const responseSubmit = await api.get(
+        `/empresas/login/${profiles.usuario}`
+      );
 
-      if (filteredProfiles) {
+      const subValue = responseSubmit.data.login;
+
+      if (subValue === false) {
+        toast.error('Somente administradores podem realizar cadastro.');
+      }
+
+      if (subValue === true) {
         dispatch(createCompanyRequest(data));
       }
     } else {
-      toast.error('Somente administradores podem realizar cadastros.');
+      toast.error('Por favor atualize a página.');
     }
   };
 
   async function handleLogin() {
-    const response = await api.get('/empresas', {
-      params: {
-        page,
-        per_page: 1000,
-      },
-    });
-    const users = response.data.items;
+    try {
+      const response = await api.get(`/empresas/login/${login}`);
 
-    const filteredAdmin = users.filter(function filterData(user) {
-      return user.usuario === login && user.admin === true;
-    });
+      const resValue = response.data.login;
 
-    if (filteredAdmin.length > 0) {
-      setProfiles(filteredAdmin);
-      setVisible(!visible);
-      setShow(!show);
+      if (resValue === false) {
+        toast.error('Acesso somente para usuários administradores.');
+      }
+
+      if (resValue === true) {
+        const companyRes = await api.get(`/empresas/${login}`);
+        const companyProfile = companyRes.data;
+
+        setProfiles(companyProfile);
+        setVisible(!visible);
+        setShow(!show);
+      }
+    } catch (error) {
+      toast.error('Usuário não encontrado, verfique seus dados.');
     }
   }
 

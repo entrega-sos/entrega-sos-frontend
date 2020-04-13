@@ -39,7 +39,6 @@ export default function Cadastro() {
 
   const [visible, setVisible] = useState(true);
   const [show, setShow] = useState(false);
-  const [profiles, setProfiles] = useState([]);
 
   // cadastro state
 
@@ -78,24 +77,8 @@ export default function Cadastro() {
     select.innerHTML = option;
   }
 
-  const onSubmit = async data => {
-    if (profiles) {
-      const responseSubmit = await api.get(
-        `/empresas/login/${profiles.usuario}`
-      );
-
-      const subValue = responseSubmit.data.login;
-
-      if (subValue === false) {
-        toast.error('Somente administradores podem realizar cadastro.');
-      }
-
-      if (subValue === true) {
-        dispatch(createCompanyRequest(data));
-      }
-    } else {
-      toast.error('Por favor atualize a página.');
-    }
+  const onSubmit = data => {
+    dispatch(createCompanyRequest(data));
   };
 
   async function handleLogin() {
@@ -109,10 +92,6 @@ export default function Cadastro() {
       }
 
       if (resValue === true) {
-        const companyRes = await api.get(`/empresas/${login}`);
-        const companyProfile = companyRes.data;
-
-        setProfiles(companyProfile);
         setVisible(!visible);
         setShow(!show);
       }

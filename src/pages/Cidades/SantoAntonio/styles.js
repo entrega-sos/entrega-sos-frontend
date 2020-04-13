@@ -65,7 +65,6 @@ export const Text = styled.div`
   strong {
     font-size: 22px;
     color: #212529;
-
     margin-bottom: 20px;
     font-style: italic;
 
@@ -81,7 +80,6 @@ export const Text = styled.div`
 
   p {
     color: #212529;
-
     margin-bottom: 10px;
     font-size: 15px;
   }
@@ -330,6 +328,22 @@ export const PersonalContent = styled.div`
         align-items: center;
       }
 
+      @media (max-width: 375px) {
+        width: 300px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      @media (max-width: 320px) {
+        width: 250px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
       margin-top: 20px;
       > a {
         color: #fff;
@@ -349,6 +363,26 @@ export const PersonalContent = styled.div`
       width: 350px;
     }
 
+    @media (max-width: 375px) {
+      display: flex;
+      flex-wrap: none;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      width: 300px;
+    }
+
+    @media (max-width: 320px) {
+      display: flex;
+      flex-wrap: none;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      width: 250px;
+    }
+
     div {
       margin-top: 10px;
 
@@ -358,10 +392,19 @@ export const PersonalContent = styled.div`
         @media (max-width: 425px) {
           margin-left: 0px;
         }
+
+        @media (max-width: 320px) {
+          margin-left: 0px;
+          width: 230px;
+        }
       }
 
       strong {
         font-weight: 500;
+
+        @media (max-width: 320px) {
+          width: 230px;
+        }
 
         > span {
           border: none;
@@ -397,6 +440,24 @@ export const Address = styled.div`
     align-items: flex-start;
     justify-content: flex-start;
   }
+
+  @media (max-width: 375px) {
+    margin-left: 20px;
+    display: flex;
+
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  @media (max-width: 320px) {
+    margin-left: 20px;
+    display: flex;
+
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 `;
 
 export const AddressContent = styled.div`
@@ -404,6 +465,24 @@ export const AddressContent = styled.div`
   flex-direction: column;
 
   width: 100%;
+
+  @media (max-width: 425px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    width: 350px;
+  }
+
+  @media (max-width: 320px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    width: 250px;
+  }
 
   nav {
     strong {
@@ -425,6 +504,15 @@ export const AddressContent = styled.div`
       justify-content: flex-start;
 
       width: 350px;
+    }
+
+    @media (max-width: 320px) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      width: 300px;
     }
 
     div {
@@ -460,6 +548,15 @@ export const Other = styled.div`
     align-items: center;
     justify-content: center;
   }
+
+  @media (max-width: 320px) {
+    margin-left: 20px;
+    display: flex;
+
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 `;
 
 export const OtherContent = styled.div`
@@ -475,6 +572,24 @@ export const OtherContent = styled.div`
     justify-content: flex-start;
 
     width: 350px;
+  }
+
+  @media (max-width: 375px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    width: 300px;
+  }
+
+  @media (max-width: 320px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    width: 280px;
   }
 
   nav {
@@ -498,6 +613,15 @@ export const OtherContent = styled.div`
       width: 100%;
     }
 
+    @media (max-width: 320px) {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      width: 250px;
+    }
+
     main {
       display: flex;
       flex-direction: column;
@@ -516,6 +640,13 @@ export const OtherContent = styled.div`
           margin-top: 10px;
           margin-right: 5px;
         }
+
+        @media (max-width: 320px) {
+          align-self: flex-start;
+          font-weight: bold;
+          margin-top: 10px;
+          margin-right: 5px;
+        }
       }
 
       p {
@@ -527,7 +658,11 @@ export const OtherContent = styled.div`
 
       div.pagamento-box {
         display: flex;
-        flex-direction: row;
+        flex-wrap: wrap;
+
+        @media (max-width: 320px) {
+          width: 150px;
+        }
       }
       p.pagamento {
         margin-right: 10px;

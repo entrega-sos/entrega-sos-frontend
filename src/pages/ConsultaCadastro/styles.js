@@ -109,6 +109,13 @@ export const ButtonAdd = styled.button`
     padding: 10px;
   }
 
+  @media (max-width: 375px) {
+    margin-left: 0;
+    margin-top: 0;
+    width: 275px;
+    padding: 10px;
+  }
+
   @media (max-width: 320px) {
     margin-left: 0;
     margin-top: 0;

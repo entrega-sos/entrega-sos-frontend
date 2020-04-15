@@ -98,8 +98,12 @@ export default function Feiradesantana() {
 
     const phone = store.telefone;
     const phoneWhatsapp = store.whatsapp;
-    const formatPhone = phone.replace(/\D+/g, '');
-    const formatWhatsapp = phoneWhatsapp.replace(/\D+/g, '');
+
+    const formatPhone = phone ? phone.replace(/\D+/g, '') : '';
+
+    const formatWhatsapp = phoneWhatsapp
+      ? phoneWhatsapp.replace(/\D+/g, '')
+      : '';
 
     setFormattedPhone(formatPhone);
     setFormattedWhatsapp(formatWhatsapp);

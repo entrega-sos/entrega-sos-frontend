@@ -167,7 +167,7 @@ export default function SantoAntonio() {
 
           <Options visible={visible}>
             {tipos !== null ? (
-              tipos.map(tipo => (
+              tipos.sort().map(tipo => (
                 <Bairro
                   key={tipo.toString()}
                   onClick={() => handleStores(tipo)}

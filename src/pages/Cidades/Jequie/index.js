@@ -166,7 +166,7 @@ export default function Jequie() {
 
           <Options visible={visible}>
             {tipos !== null ? (
-              tipos.map(tipo => (
+              tipos.sort().map(tipo => (
                 <>
                   <Bairro onClick={() => handleStores(tipo)}>
                     <img src={Arrow} alt="Seta" />

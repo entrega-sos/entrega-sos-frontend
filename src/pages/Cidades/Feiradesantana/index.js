@@ -75,16 +75,7 @@ export default function Feiradesantana() {
       );
     });
 
-    // Get random items from response
-    const len = filteredNegocios.length;
-
-    const shuffled = filteredNegocios.sort(function sortArr() {
-      return 0.5 - Math.random();
-    });
-
-    const selected = shuffled.slice(0, len);
-
-    setStores(selected);
+    setStores(filteredNegocios);
     setVisible(!visible);
     setShow(!show);
   }
@@ -161,7 +152,7 @@ export default function Feiradesantana() {
                   <p>
                     {visible
                       ? 'Selecione o tipo de estabelecimento.'
-                      : 'Selecione o estabelecimento'}
+                      : 'Estabelecimentos ordenados por bairro'}
                   </p>
                 </>
               )}
@@ -185,21 +176,23 @@ export default function Feiradesantana() {
           {/* Renderiza as empresas cadastradas de acordo com o tipo de negócios selecionado */}
 
           <Stores show={show}>
-            {stores.map(store => (
-              <Places onClick={() => handleCard(store)}>
-                <div>
-                  <div className="title">
-                    <span>{store.descricao}</span>
+            {stores
+              .sort((a, b) => (a.bairro > b.bairro ? 1 : -1))
+              .map(store => (
+                <Places onClick={() => handleCard(store)}>
+                  <div>
+                    <div className="title">
+                      <span>{store.descricao}</span>
+                    </div>
+                    <div className="info">
+                      <span>Bairro: {store.bairro}</span>
+                    </div>
+                    <div className="horario">
+                      <span>Horários: {store.dias_horarios}</span>
+                    </div>
                   </div>
-                  <div className="info">
-                    <span>Bairro: {store.bairro}</span>
-                  </div>
-                  <div className="horario">
-                    <span>Horários: {store.dias_horarios}</span>
-                  </div>
-                </div>
-              </Places>
-            ))}
+                </Places>
+              ))}
           </Stores>
 
           {/*
@@ -228,15 +221,7 @@ export default function Feiradesantana() {
                 </div>
                 <div>
                   <MdLocalPhone size={20} />
-                  <span>Telefone: </span>{' '}
-                  <a
-                    href={`https://wa.me/55${formattedPhone}`}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    {' '}
-                    {company.telefone}
-                  </a>
+                  <span>Telefone: </span> <p> {company.telefone}</p>
                 </div>
 
                 <div>

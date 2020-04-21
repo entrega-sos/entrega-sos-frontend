@@ -75,16 +75,8 @@ export default function SantoAntonio() {
         negocio.tipo_negocio === negocioName
       );
     });
-    // Get random items from response
-    const len = filteredNegocios.length;
 
-    const shuffled = filteredNegocios.sort(function sortArr() {
-      return 0.5 - Math.random();
-    });
-
-    const selected = shuffled.slice(0, len);
-
-    setStores(selected);
+    setStores(filteredNegocios);
     setVisible(!visible);
     setShow(!show);
   }
@@ -160,7 +152,7 @@ export default function SantoAntonio() {
                   <p>
                     {visible
                       ? 'Selecione o tipo de estabelecimento.'
-                      : 'Selecione o estabelecimento'}
+                      : 'Estabelecimentos ordenados por bairro'}
                   </p>
                 </>
               )}
@@ -171,10 +163,7 @@ export default function SantoAntonio() {
           <Options visible={visible}>
             {tipos !== null ? (
               tipos.sort().map(tipo => (
-                <Bairro
-                  key={tipo.toString()}
-                  onClick={() => handleStores(tipo)}
-                >
+                <Bairro onClick={() => handleStores(tipo)}>
                   <img src={Arrow} alt="Seta" />
                   <span>{tipo}</span>
                 </Bairro>
@@ -187,12 +176,23 @@ export default function SantoAntonio() {
           {/* Renderiza as empresas cadastradas de acordo com o tipo de negócios selecionado */}
 
           <Stores show={show}>
-            {stores.map(store => (
-              <Places key={store.toString()} onClick={() => handleCard(store)}>
-                <img src={Arrow} alt="Seta" />
-                <span>{store.descricao}</span>
-              </Places>
-            ))}
+            {stores
+              .sort((a, b) => (a.bairro > b.bairro ? 1 : -1))
+              .map(store => (
+                <Places onClick={() => handleCard(store)}>
+                  <div>
+                    <div className="title">
+                      <span>{store.descricao}</span>
+                    </div>
+                    <div className="info">
+                      <span>Bairro: {store.bairro}</span>
+                    </div>
+                    <div className="horario">
+                      <span>Horários: {store.dias_horarios}</span>
+                    </div>
+                  </div>
+                </Places>
+              ))}
           </Stores>
 
           {/*
@@ -221,15 +221,7 @@ export default function SantoAntonio() {
                 </div>
                 <div>
                   <MdLocalPhone size={20} />
-                  <span>Telefone: </span>{' '}
-                  <a
-                    href={`https://wa.me/55${formattedPhone}`}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    {' '}
-                    {company.telefone}
-                  </a>
+                  <span>Telefone: </span> <p> {company.telefone}</p>
                 </div>
 
                 <div>

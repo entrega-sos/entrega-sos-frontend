@@ -32,7 +32,7 @@ import {
 
 import api from '../../../services/api';
 
-export default function Guanambi() {
+export default function Feiradesantana() {
   const [tipos, setTipos] = useState([]);
   const [stores, setStores] = useState([]);
   const [company, setCompany] = useState([]);
@@ -51,7 +51,7 @@ export default function Guanambi() {
         '/empresas?group=cidade&filter=tipo_negocio'
       );
 
-      const negocios = response.data.Guanambi;
+      const negocios = response.data['Simões Filho'];
 
       setTipos(negocios);
     }
@@ -66,14 +66,23 @@ export default function Guanambi() {
         per_page: 1000,
       },
     });
-
     const negocios = response.data.items;
 
     const filteredNegocios = negocios.filter(function filterData(negocio) {
       return (
-        negocio.cidade === 'Guanambi' && negocio.tipo_negocio === negocioName
+        negocio.cidade === 'Simões Filho' &&
+        negocio.tipo_negocio === negocioName
       );
     });
+
+    // Get random items from response
+    // const len = filteredNegocios.length;
+
+    // const shuffled = filteredNegocios.sort(function sortArr() {
+    //   return 0.5 - Math.random();
+    // });
+
+    // const selected = shuffled.slice(0, len);
 
     setStores(filteredNegocios);
     setVisible(!visible);
@@ -89,6 +98,7 @@ export default function Guanambi() {
 
     const phone = store.telefone;
     const phoneWhatsapp = store.whatsapp;
+
     const formatPhone = phone ? phone.replace(/\D+/g, '') : '';
 
     const formatWhatsapp = phoneWhatsapp
@@ -146,7 +156,7 @@ export default function Guanambi() {
                 </>
               ) : (
                 <>
-                  <strong>GUANAMBI</strong>
+                  <strong>SIMÕES FILHO</strong>
 
                   <p>
                     {visible

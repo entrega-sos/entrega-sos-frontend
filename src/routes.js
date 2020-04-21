@@ -13,6 +13,7 @@ import Guanambi from './pages/Cidades/Guanambi';
 import Jequie from './pages/Cidades/Jequie';
 import Salvador from './pages/Cidades/Salvador';
 import SantoAntonio from './pages/Cidades/SantoAntonio';
+import SimoesFilho from './pages/Cidades/SimoesFilho';
 
 export default function Routes() {
   return (
@@ -29,6 +30,7 @@ export default function Routes() {
       <Route path="/cidades/Jequié" component={Jequie} />
       <Route path="/cidades/Salvador" component={Salvador} />
       <Route path="/cidades/SantoAntôniodeJesus" component={SantoAntonio} />
+      <Route path="/cidades/SimõesFilho" component={SimoesFilho} />
     </Switch>
   );
 }

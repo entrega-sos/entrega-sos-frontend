@@ -253,6 +253,11 @@ export const PersonalContent = styled.div`
   }
 
   nav {
+    p {
+      margin-top: 10px;
+      margin-right: 5px;
+      font-size: 16px;
+    }
     strong {
       margin-left: 8px;
       font-size: 20px;

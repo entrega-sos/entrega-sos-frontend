@@ -74,16 +74,6 @@ export default function Feiradesantana() {
         negocio.tipo_negocio === negocioName
       );
     });
-
-    // Get random items from response
-    // const len = filteredNegocios.length;
-
-    // const shuffled = filteredNegocios.sort(function sortArr() {
-    //   return 0.5 - Math.random();
-    // });
-
-    // const selected = shuffled.slice(0, len);
-
     setStores(filteredNegocios);
     setVisible(!visible);
     setShow(!show);

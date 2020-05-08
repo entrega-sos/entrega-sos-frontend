@@ -23,7 +23,8 @@ export default function Cidades() {
           place === 'Guanambi' ||
           place === 'Jequié' ||
           place === 'Salvador' ||
-          place === 'Santo Antônio de Jesus'
+          place === 'Santo Antônio de Jesus' ||
+          place === 'Simões Filho'
         );
       });
 
